@@ -28,6 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao98bb7f1bbb8785ca8e4843acb93fd48b</string>
+				<string>donna6355study</string>
 			</array>
 		</dict>
 	</array>
@@ -36,7 +37,17 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakaokompassauth</string>
+        <string>naversearchapp</string>
+        <string>naversearchthirdlogin</string>
 	</array>
+	<key>naverServiceAppUrlScheme</key>
+    <string>donna6355study</string>
+    <key>naverConsumerKey</key>
+    <string>Kl2NmHHzdnqIrxz_qAFy</string>
+    <key>naverConsumerSecret</key>
+    <string>hJi2xCFdFl</string>
+    <key>naverServiceAppName</key>
+    <string>카리브</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
@@ -58,5 +69,27 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+        <dict>
+           <key>NSAllowsArbitraryLoads</key>
+           <true/>
+           <key>NSExceptionDomains</key>
+           <dict>
+              <key>naver.com</key>
+              <dict>
+                 <key>NSExceptionRequiresForwardSecrecy</key>
+                 <false/>
+                 <key>NSIncludesSubdomains</key>
+                 <true/>
+              </dict>
+              <key>naver.net</key>
+              <dict>
+                 <key>NSExceptionRequiresForwardSecrecy</key>
+                 <false/>
+                 <key>NSIncludesSubdomains</key>
+                 <true/>
+              </dict>
+           </dict>
+        </dict>
 </dict>
 </plist>
