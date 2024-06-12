@@ -28,7 +28,52 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const NaverLogin(),
+      home: const Logins(),
+    );
+  }
+}
+
+class Logins extends StatefulWidget {
+  const Logins({super.key});
+
+  @override
+  State<Logins> createState() => _LoginsState();
+}
+
+class _LoginsState extends State<Logins> {
+  String status = 'NO ACCOUNT';
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('SOCIAL LOGINS'),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            Text(
+              status,
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final String res = await signInWithKakao();
+                setState(() => status = res);
+              },
+              child: Text('Kakao Login'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final String res = await signInWithNaver();
+                setState(() => status = res);
+              },
+              child: Text('Naver Login'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
