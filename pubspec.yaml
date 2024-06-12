@@ -38,6 +38,7 @@ dependencies:
   kakao_flutter_sdk_user: ^1.9.2
   http: ^1.2.1
   flutter_naver_login: ^1.8.0
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   flutter_test:

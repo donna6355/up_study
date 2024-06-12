@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
+import 'package:study/google/google_login.dart';
 import 'package:study/naver/naver_login.dart';
 
 import 'kakao/kakao_login.dart';
@@ -70,6 +71,13 @@ class _LoginsState extends State<Logins> {
                 setState(() => status = res);
               },
               child: Text('Naver Login'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final String res = await signInWithGoogle();
+                setState(() => status = res);
+              },
+              child: Text('Google Login'),
             ),
           ],
         ),
