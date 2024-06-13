@@ -49,6 +49,8 @@
     <string>hJi2xCFdFl</string>
     <key>naverServiceAppName</key>
     <string>카리브</string>
+    <key>NFCReaderUsageDescription</key>
+    <string>NFC For Test</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

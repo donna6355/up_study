@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/google/google_login.dart';
 import 'package:study/naver/naver_login.dart';
+import 'package:study/nfc_test.dart';
 
 import 'kakao/kakao_login.dart';
 
@@ -78,6 +79,16 @@ class _LoginsState extends State<Logins> {
                 setState(() => status = res);
               },
               child: Text('Google Login'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const NfcTest(),
+                  ),
+                );
+              },
+              child: const Text('Test NFC'),
             ),
           ],
         ),
