@@ -4,6 +4,7 @@ import 'package:study/google/google_login.dart';
 import 'package:study/method_channel.dart';
 import 'package:study/naver/naver_login.dart';
 import 'package:study/nfc_hce_sample.dart';
+import 'package:study/nfc_native_sample.dart';
 
 import 'kakao/kakao_login.dart';
 
@@ -95,11 +96,11 @@ class _LoginsState extends State<Logins> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const NfcHceSample(),
+                    builder: (context) => const NfcNativeSample(),
                   ),
                 );
               },
-              child: const Text('NFC HCE'),
+              child: const Text('NFC'),
             ),
           ],
         ),

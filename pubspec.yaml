@@ -38,7 +38,7 @@ dependencies:
   http: ^1.2.1
   flutter_naver_login: ^1.8.0
   google_sign_in: ^6.2.1
-  nfc_host_card_emulation: ^1.1.0
+  # nfc_host_card_emulation: ^1.1.0
   # nfc_manager: ^3.5.0
   # flutter_nfc_kit: ^3.5.2
 
