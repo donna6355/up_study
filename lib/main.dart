@@ -3,6 +3,7 @@ import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/google/google_login.dart';
 import 'package:study/method_channel.dart';
 import 'package:study/naver/naver_login.dart';
+import 'package:study/nfc_hce_sample.dart';
 
 import 'kakao/kakao_login.dart';
 
@@ -89,6 +90,16 @@ class _LoginsState extends State<Logins> {
                 );
               },
               child: const Text('Method Channel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const NfcHceSample(),
+                  ),
+                );
+              },
+              child: const Text('NFC HCE'),
             ),
           ],
         ),
