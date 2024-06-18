@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +12,8 @@ class NfcNativeSample extends StatefulWidget {
 
 class _NfcNativeSampleState extends State<NfcNativeSample> {
   static const platform = MethodChannel('samples.flutter.dev/nfc');
+  static const platformEvent = EventChannel('samples.flutter.dev/nfcevent');
+  late StreamSubscription<dynamic> _eventSubscription;
   dynamic res = 'NOT STARTED';
 
   Future<void> checkNfc() async {
@@ -62,7 +66,7 @@ class _NfcNativeSampleState extends State<NfcNativeSample> {
       });
     } catch (e) {
       setState(() {
-        res = 'FAILE TO ADD NFC RES : $e';
+        res = 'FAILED TO ADD NFC RES : $e';
       });
     }
   }
@@ -78,9 +82,23 @@ class _NfcNativeSampleState extends State<NfcNativeSample> {
       });
     } catch (e) {
       setState(() {
-        res = 'FAILE TO REMOVE NFC RES : $e';
+        res = 'FAILED TO REMOVE NFC RES : $e';
       });
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _eventSubscription = platformEvent.receiveBroadcastStream().listen((event) {
+      print(event);
+    });
+  }
+
+  @override
+  void dispose() {
+    _eventSubscription.cancel();
+    super.dispose();
   }
 
   @override

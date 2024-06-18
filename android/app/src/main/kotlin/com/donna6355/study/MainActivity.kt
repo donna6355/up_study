@@ -1,5 +1,6 @@
 package com.donna6355.study
 
+import android.content.BroadcastReceiver
 import io.flutter.embedding.android.FlutterFragmentActivity
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.FlutterEngine
@@ -14,12 +15,14 @@ import android.os.BatteryManager
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
 import android.util.Log
+import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodCodec
 
 class MainActivity: FlutterFragmentActivity() {
     private val CHANNEL = "samples.flutter.dev/battery"
     private val NFCCHANNEL = "samples.flutter.dev/nfc"
+    private val EVENTCHANNEL = "samples.flutter.dev/nfcevent"
     private var nfcAdapter: NfcAdapter? = null
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
@@ -53,6 +56,10 @@ class MainActivity: FlutterFragmentActivity() {
                 else->result.notImplemented()
             }
         }
+
+        EventChannel(flutterEngine.dartExecutor.binaryMessenger, EVENTCHANNEL).setStreamHandler(
+            HCEHandler
+        )
     }
 
     private fun getBatteryLevel(): Int {

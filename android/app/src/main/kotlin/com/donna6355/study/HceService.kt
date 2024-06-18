@@ -3,7 +3,11 @@ package com.donna6355.study
 import android.content.Intent
 import android.nfc.cardemulation.HostApduService
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import com.donna6355.study.HceService.Companion.byteArrayToString
+import io.flutter.plugin.common.EventChannel
 
 class HceService: HostApduService() {
     companion object {
@@ -54,8 +58,32 @@ class HceService: HostApduService() {
        if(permanentApduResponses == false) portData.remove(port)
 
        Log.d("HCE","send Response ${byteArrayToString(responseApdu + SUCCESS)}")
+
+       HCEHandler.updateHCEResponse("success")
+
        return responseApdu + SUCCESS
    }
 
     override fun onDeactivated(reason: Int) {}
+}
+
+object HCEHandler : EventChannel.StreamHandler {
+    private var eventSink: EventChannel.EventSink? = null
+
+    fun updateHCEResponse(msg:String){
+        Log.d("HCE","HANDLER POST")
+        eventSink?.success(msg)
+    }
+
+
+    override fun onListen(arguments: Any?, sink: EventChannel.EventSink) {
+        Log.d("HCE","HANDLER LISTEN")
+
+        eventSink = sink
+    }
+
+    override fun onCancel(arguments: Any?) {
+        Log.d("HCE","HANDLER CANCEL")
+        eventSink = null
+    }
 }
