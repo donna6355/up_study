@@ -1,18 +1,14 @@
 package com.donna6355.study
 
-import android.content.Intent
 import android.nfc.cardemulation.HostApduService
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
-import com.donna6355.study.HceService.Companion.byteArrayToString
 import io.flutter.plugin.common.EventChannel
 
 class HceService: HostApduService() {
     companion object {
-        var permanentApduResponses = false;
-        var listenOnlyConfiguredPorts = false;
+        var permanentApduResponses = false
+        var listenOnlyConfiguredPorts = false
 
         var aid = byteArrayOf(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
         var cla : Byte = 0
@@ -20,7 +16,7 @@ class HceService: HostApduService() {
 
         var portData = mutableMapOf<Int, ByteArray>()
 
-        public fun byteArrayToString(array: ByteArray) : String
+        fun byteArrayToString(array: ByteArray) : String
         {
             var str = "["
             for(i in 0..array.size - 2)
