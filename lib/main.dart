@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
+import 'package:study/apple/apple_login.dart';
 import 'package:study/google/google_login.dart';
 import 'package:study/method_channel.dart';
 import 'package:study/naver/naver_login.dart';
@@ -81,6 +82,14 @@ class _LoginsState extends State<Logins> {
                 setState(() => status = res);
               },
               child: Text('Google Login'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final String res = await SignInWithAppleId();
+                print(res);
+                setState(() => status = res);
+              },
+              child: Text('Apple Login'),
             ),
             ElevatedButton(
               onPressed: () {
