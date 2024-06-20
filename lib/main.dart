@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/apple/apple_login.dart';
 import 'package:study/google/google_login.dart';
@@ -121,6 +122,14 @@ class _LoginsState extends State<Logins> {
                 );
               },
               child: const Text('Local Auth'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                MethodChannel('samples.flutter.dev/pay')
+                    .invokeMethod("openPayWeb");
+                //call native pay webview
+              },
+              child: const Text('make Payment'),
             ),
           ],
         ),

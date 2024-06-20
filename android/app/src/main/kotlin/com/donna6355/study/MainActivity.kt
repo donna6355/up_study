@@ -23,6 +23,7 @@ class MainActivity: FlutterFragmentActivity() {
     private val CHANNEL = "samples.flutter.dev/battery"
     private val NFCCHANNEL = "samples.flutter.dev/nfc"
     private val EVENTCHANNEL = "samples.flutter.dev/nfcevent"
+    private val PAYCHANNEL = "samples.flutter.dev/pay"
     private var nfcAdapter: NfcAdapter? = null
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
@@ -40,6 +41,16 @@ class MainActivity: FlutterFragmentActivity() {
                 } else {
                 result.error("UNAVAILABLE", "Battery level not available.", null)
                 }
+            } else {
+                result.notImplemented()
+            }
+        }
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, PAYCHANNEL).setMethodCallHandler {
+        // This method is invoked on the main thread.
+        call, result ->
+            if (call.method == "openPayWeb") {
+                val intent = Intent(this, WebViewActivity::class.java)
+                startActivity(intent)
             } else {
                 result.notImplemented()
             }
