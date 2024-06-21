@@ -12,6 +12,9 @@
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		639579A85E744A5AD0BD1B35 /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D039DC65D442927673EEE8E /* Pods_RunnerTests.framework */; };
 		7007B7042C19364100EE11CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7007B7032C19364100EE11CD /* GoogleService-Info.plist */; };
+		70577CB62C24171E005C27F8 /* PaymentWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CB52C24171E005C27F8 /* PaymentWebViewController.swift */; };
+		70577CB92C250FD2005C27F8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CB82C250FD2005C27F8 /* Coordinator.swift */; };
+		70577CBB2C251020005C27F8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CBA2C251020005C27F8 /* AppCoordinator.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		7007B7032C19364100EE11CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		702F5F3C2C1A7E1000101764 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
+		70577CB52C24171E005C27F8 /* PaymentWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWebViewController.swift; sourceTree = "<group>"; };
+		70577CB82C250FD2005C27F8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		70577CBA2C251020005C27F8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A1E5AA77DF6CB927BCFF3B3 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +126,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		70577CB72C250F96005C27F8 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				70577CB82C250FD2005C27F8 /* Coordinator.swift */,
+				70577CB52C24171E005C27F8 /* PaymentWebViewController.swift */,
+				70577CBA2C251020005C27F8 /* AppCoordinator.swift */,
+			);
+			name = Payment;
+			sourceTree = "<group>";
+		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +171,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				70577CB72C250F96005C27F8 /* Payment */,
 				702F5F3C2C1A7E1000101764 /* Runner.entitlements */,
 				7007B7032C19364100EE11CD /* GoogleService-Info.plist */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
@@ -400,6 +417,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70577CB92C250FD2005C27F8 /* Coordinator.swift in Sources */,
+				70577CB62C24171E005C27F8 /* PaymentWebViewController.swift in Sources */,
+				70577CBB2C251020005C27F8 /* AppCoordinator.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 			);

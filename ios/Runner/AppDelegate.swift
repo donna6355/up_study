@@ -10,6 +10,8 @@ import UIKit
     let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
     let batteryChannel = FlutterMethodChannel(name: "samples.flutter.dev/battery",
                                               binaryMessenger: controller.binaryMessenger)
+    let payChannel = FlutterMethodChannel(name: "samples.flutter.dev/pay",
+                                              binaryMessenger: controller.binaryMessenger)
     batteryChannel.setMethodCallHandler({
       (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
       // This method is invoked on the UI thread.
@@ -18,6 +20,18 @@ import UIKit
         return
       }
       self.receiveBatteryLevel(result: result)
+    })
+    payChannel.setMethodCallHandler({
+      (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+      // This method is invoked on the UI thread.
+      guard call.method == "openPayWeb" else {
+        result(FlutterMethodNotImplemented)
+        return
+      }
+        let navigationController = UINavigationController(rootViewController: PaymentWebViewController())
+        self.window.rootViewController = navigationController
+        self.window.makeKeyAndVisible()
+
     })
     
     GeneratedPluginRegistrant.register(with: self)

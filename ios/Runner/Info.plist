@@ -4,6 +4,8 @@
 <dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -30,6 +32,7 @@
 				<string>kakao98bb7f1bbb8785ca8e4843acb93fd48b</string>
 				<string>donna6355study</string>
 				<string>com.googleusercontent.apps.695641364360-sr2poju7l7pqj7e05i7qc0g3h39lfo61</string>
+				<string>nicepaysample</string>
 			</array>
 		</dict>
 	</array>
@@ -40,6 +43,45 @@
 		<string>kakaokompassauth</string>
 		<string>naversearchapp</string>
 		<string>naversearchthirdlogin</string>
+		<string>kftc-bankpay</string>
+		<string>ispmobile</string>
+		<string>shinhan-sr-ansimclick</string>
+		<string>smshinhanansimclick</string>
+		<string>hdcardappcardansimclick</string>
+		<string>smhyundaiansimclick</string>
+		<string>mpocket.online.ansimclick</string>
+		<string>scardcertiapp</string>
+		<string>cloudpay</string>
+		<string>nhappcardansimclick</string>
+		<string>nonghyupcardansimclick</string>
+		<string>kb-acp</string>
+		<string>lotteappcard</string>
+		<string>lottesmartpay</string>
+		<string>citispay</string>
+		<string>shinsegaeeasypayment</string>
+		<string>kakaotalk</string>
+		<string>tswansimclick</string>
+		<string>nhallonepayansimclick</string>
+		<string>citimobileapp</string>
+		<string>payco</string>
+		<string>hanaskcardmobileportal</string>
+		<string>wooripay</string>
+		<string>lpayapp</string>
+		<string>hanawalletmembers</string>
+		<string>tauthlink</string>
+		<string>ktauthexternalcall</string>
+		<string>upluscorporation</string>
+		<string>liivbank</string>
+		<string>kb-bankpay</string>
+		<string>naversearchthirdlogin</string>
+		<string>lmslpay</string>
+		<string>com.wooricard.wcard</string>
+		<string>newliiv</string>
+		<string>NewSmartPib</string>
+		<string>kbbank</string>
+		<string>ukbanksmartbanknonloginpay</string>
+		<string>monimopay</string>
+		<string>monimopayauth</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
