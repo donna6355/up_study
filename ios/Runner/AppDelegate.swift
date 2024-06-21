@@ -32,11 +32,12 @@ import UIKit
         self.mainCoordinator?.start()
 
     })
-      let navigationController = UINavigationController(rootViewController: controller)
-          navigationController.isNavigationBarHidden = true
-          window?.rootViewController = navigationController
-          mainCoordinator = AppCoordinator(navigationController: navigationController)
-          window?.makeKeyAndVisible()
+      //comment out as it conflicts with kakao sdk
+      // let navigationController = UINavigationController(rootViewController: controller)
+      //     navigationController.isNavigationBarHidden = true
+      //     window?.rootViewController = navigationController
+      //     mainCoordinator = AppCoordinator(navigationController: navigationController)
+      //     window?.makeKeyAndVisible()
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

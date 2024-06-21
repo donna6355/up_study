@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/apple/apple_login.dart';
+import 'package:study/blur_test.dart';
 import 'package:study/google/google_login.dart';
 import 'package:study/local_auth.dart';
 import 'package:study/method_channel.dart';
@@ -122,6 +123,16 @@ class _LoginsState extends State<Logins> {
                 );
               },
               child: const Text('Local Auth'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const BlurTest(),
+                  ),
+                );
+              },
+              child: const Text('Blur Page'),
             ),
             ElevatedButton(
               onPressed: () {
