@@ -15,6 +15,8 @@
 		70577CB62C24171E005C27F8 /* PaymentWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CB52C24171E005C27F8 /* PaymentWebViewController.swift */; };
 		70577CB92C250FD2005C27F8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CB82C250FD2005C27F8 /* Coordinator.swift */; };
 		70577CBB2C251020005C27F8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CBA2C251020005C27F8 /* AppCoordinator.swift */; };
+		70577CBD2C251276005C27F8 /* PayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CBC2C251276005C27F8 /* PayCoordinator.swift */; };
+		70577CBF2C25157F005C27F8 /* FlutterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70577CBE2C25157F005C27F8 /* FlutterCoordinator.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		70577CB52C24171E005C27F8 /* PaymentWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWebViewController.swift; sourceTree = "<group>"; };
 		70577CB82C250FD2005C27F8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		70577CBA2C251020005C27F8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		70577CBC2C251276005C27F8 /* PayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCoordinator.swift; sourceTree = "<group>"; };
+		70577CBE2C25157F005C27F8 /* FlutterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterCoordinator.swift; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A1E5AA77DF6CB927BCFF3B3 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				70577CB82C250FD2005C27F8 /* Coordinator.swift */,
 				70577CB52C24171E005C27F8 /* PaymentWebViewController.swift */,
 				70577CBA2C251020005C27F8 /* AppCoordinator.swift */,
+				70577CBC2C251276005C27F8 /* PayCoordinator.swift */,
+				70577CBE2C25157F005C27F8 /* FlutterCoordinator.swift */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -422,6 +428,8 @@
 				70577CBB2C251020005C27F8 /* AppCoordinator.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				70577CBD2C251276005C27F8 /* PayCoordinator.swift in Sources */,
+				70577CBF2C25157F005C27F8 /* FlutterCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

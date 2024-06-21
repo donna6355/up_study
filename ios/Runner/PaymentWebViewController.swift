@@ -9,6 +9,7 @@ import UIKit
 import WebKit
 
 class PaymentWebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+    var coordinatorDelegate: PayCoordinatorDelegate?
     let PAY_URL: String = "https://web.nicepay.co.kr/demo/v3/mobileReq.jsp"
     var webView: WKWebView? = nil
     
@@ -27,11 +28,14 @@ class PaymentWebViewController: UIViewController, WKNavigationDelegate, WKUIDele
         let request = URLRequest(url: url!)
         webView?.load(request)
     }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
         webView?.frame = self.view.frame
+    }
+    
+    func goToFlutter(_ sender: Any){
+        coordinatorDelegate?.navigateToFlutter()
     }
     
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {

@@ -3,6 +3,7 @@ import UIKit
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
+    private var mainCoordinator : AppCoordinator?
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -28,12 +29,14 @@ import UIKit
         result(FlutterMethodNotImplemented)
         return
       }
-        let navigationController = UINavigationController(rootViewController: PaymentWebViewController())
-        self.window.rootViewController = navigationController
-        self.window.makeKeyAndVisible()
+        self.mainCoordinator?.start()
 
     })
-    
+      let navigationController = UINavigationController(rootViewController: controller)
+          navigationController.isNavigationBarHidden = true
+          window?.rootViewController = navigationController
+          mainCoordinator = AppCoordinator(navigationController: navigationController)
+          window?.makeKeyAndVisible()
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
