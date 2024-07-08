@@ -40,6 +40,8 @@ dependencies:
   google_sign_in: ^6.2.1
   sign_in_with_apple: ^6.1.1
   local_auth: ^2.2.0
+  device_info_plus: ^10.1.0
+  android_id: ^0.4.0
   # nfc_host_card_emulation: ^1.1.0
   # nfc_manager: ^3.5.0
   # flutter_nfc_kit: ^3.5.2
