@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-import 'device_info.dart';
+import 'package:flutter/material.dart';
 
 class DraggableSheet extends StatefulWidget {
   const DraggableSheet({super.key});
@@ -10,16 +10,14 @@ class DraggableSheet extends StatefulWidget {
 }
 
 class _DraggableSheetState extends State<DraggableSheet> {
-  final _sheet = GlobalKey();
   final _controller = DraggableScrollableController();
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: false,
+      canPop: true,
       onPopInvoked: (didPop) {
         if (didPop) return;
-        print(_controller.size);
         if (_controller.size > 0.4) {
           _controller.animateTo(
             0.1,
@@ -38,7 +36,6 @@ class _DraggableSheetState extends State<DraggableSheet> {
           child: Stack(
             children: [
               DraggableScrollableSheet(
-                key: _sheet,
                 initialChildSize: 0.5,
                 maxChildSize: 0.8,
                 minChildSize: 0.1,
@@ -113,5 +110,17 @@ class _DraggableSheetState extends State<DraggableSheet> {
         ),
       ),
     );
+  }
+}
+
+class Debouncer {
+  final int milliseconds;
+  Timer? _timer;
+  Debouncer({required this.milliseconds});
+  void run(VoidCallback action) {
+    if (_timer != null) {
+      _timer!.cancel();
+    }
+    _timer = Timer(Duration(milliseconds: milliseconds), action);
   }
 }
