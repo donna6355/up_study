@@ -12,7 +12,14 @@ class ChartTest extends StatelessWidget {
         title: Text('Chart and Guage Test'),
       ),
       body: Center(
-        child: CustomPaint(painter: CustomCircularProgress(value: 0.7)),
+        child: TweenAnimationBuilder(
+          tween: Tween<double>(begin: 0, end: 0.75),
+          duration: const Duration(seconds: 2),
+          curve: Curves.bounceOut,
+          builder: (_, num, __) {
+            return CustomPaint(painter: CustomCircularProgress(value: num));
+          },
+        ),
       ),
     );
   }
