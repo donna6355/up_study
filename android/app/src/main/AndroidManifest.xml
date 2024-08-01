@@ -68,6 +68,8 @@
         <meta-data
             android:name="com.naver.sdk.clientName"
             android:value="@string/client_name" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCWwqOHL04kB2tfnBMsaQsQHldEydgEElw"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

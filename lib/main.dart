@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/apple/apple_login.dart';
 import 'package:study/blur_test.dart';
+import 'package:study/chart_test.dart';
+import 'package:study/customized_map.dart';
 import 'package:study/device_info.dart';
 import 'package:study/draggable_sheet.dart';
 import 'package:study/google/google_login.dart';
@@ -11,6 +13,7 @@ import 'package:study/method_channel.dart';
 import 'package:study/naver/naver_login.dart';
 import 'package:study/nfc_hce_sample.dart';
 import 'package:study/nfc_native_sample.dart';
+import 'package:study/shadow.dart';
 
 import 'kakao/kakao_login.dart';
 
@@ -61,7 +64,7 @@ class _LoginsState extends State<Logins> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
+        child: ListView(
           children: [
             Text(
               status,
@@ -158,12 +161,42 @@ class _LoginsState extends State<Logins> {
             ),
             ElevatedButton(
               onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ShadowScreen(),
+                  ),
+                );
+              },
+              child: const Text('Shadow Test!'),
+            ),
+            ElevatedButton(
+              onPressed: () {
                 //https://stackoverflow.com/questions/45645866/how-can-i-push-a-uiviewcontroller-from-flutterviewcontroller
                 MethodChannel('samples.flutter.dev/pay')
                     .invokeMethod("openPayWeb");
                 //call native pay webview
               },
               child: const Text('make Payment'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CustomizedMap(),
+                  ),
+                );
+              },
+              child: const Text('Custom Google Map'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ChartTest(),
+                  ),
+                );
+              },
+              child: const Text('Chart and Guage'),
             ),
           ],
         ),

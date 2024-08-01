@@ -1,6 +1,7 @@
 import Flutter
 import UIKit
 import NaverThirdPartyLogin
+import GoogleMaps
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -39,6 +40,7 @@ import NaverThirdPartyLogin
       //     window?.rootViewController = navigationController
       //     mainCoordinator = AppCoordinator(navigationController: navigationController)
       //     window?.makeKeyAndVisible()
+    GMSServices.provideAPIKey("AIzaSyCWwqOHL04kB2tfnBMsaQsQHldEydgEElw")
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
