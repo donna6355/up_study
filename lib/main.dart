@@ -4,6 +4,7 @@ import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/apple/apple_login.dart';
 import 'package:study/blur_test.dart';
 import 'package:study/chart_test.dart';
+import 'package:study/guage_test.dart';
 import 'package:study/customized_map.dart';
 import 'package:study/device_info.dart';
 import 'package:study/draggable_sheet.dart';
@@ -66,8 +67,38 @@ class _LoginsState extends State<Logins> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CustomizedMap(),
+                  ),
+                );
+              },
+              child: const Text('Custom Google Map'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const GuageTest(),
+                  ),
+                );
+              },
+              child: const Text('Guage'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ChartTest(),
+                  ),
+                );
+              },
+              child: const Text('Chart'),
+            ),
             Text(
-              status,
+              'Login status : $status',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             ElevatedButton(
@@ -98,6 +129,26 @@ class _LoginsState extends State<Logins> {
                 setState(() => status = res);
               },
               child: Text('Apple Login'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CustomizedMap(),
+                  ),
+                );
+              },
+              child: const Text('Custom Google Map'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const GuageTest(),
+                  ),
+                );
+              },
+              child: const Text('Guage'),
             ),
             ElevatedButton(
               onPressed: () {
@@ -177,26 +228,6 @@ class _LoginsState extends State<Logins> {
                 //call native pay webview
               },
               child: const Text('make Payment'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const CustomizedMap(),
-                  ),
-                );
-              },
-              child: const Text('Custom Google Map'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const ChartTest(),
-                  ),
-                );
-              },
-              child: const Text('Chart and Guage'),
             ),
           ],
         ),
