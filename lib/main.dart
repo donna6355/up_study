@@ -4,6 +4,7 @@ import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/apple/apple_login.dart';
 import 'package:study/blur_test.dart';
 import 'package:study/chart_test.dart';
+import 'package:study/custom_clipper.dart';
 import 'package:study/guage_test.dart';
 import 'package:study/customized_map.dart';
 import 'package:study/device_info.dart';
@@ -67,6 +68,16 @@ class _LoginsState extends State<Logins> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CustomClipperSample(),
+                  ),
+                );
+              },
+              child: const Text('Custom Clipper'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(

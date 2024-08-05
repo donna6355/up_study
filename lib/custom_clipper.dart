@@ -1,0 +1,139 @@
+import 'package:flutter/material.dart';
+import 'dart:ui' as ui show Image;
+
+import 'package:flutter/services.dart';
+
+class CustomClipperSample extends StatelessWidget {
+  const CustomClipperSample({super.key});
+
+  Future<ui.Image> _bgImage() async {
+    final path = await rootBundle.load('assets/isaac.jpg');
+    return await decodeImageFromList(Uint8List.sublistView(path));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Custom Clipper Painter Test"),
+      ),
+      body: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            ClipPath(
+              clipper: OuterClipper(),
+              child: Container(
+                width: 302,
+                height: 202,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.black45,
+                ),
+              ),
+            ),
+            ClipPath(
+              clipper: InnerClipper(),
+              child: Container(
+                width: 300,
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  image: DecorationImage(
+                    image: AssetImage('assets/isaac.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: const Center(
+                  child: Text(
+                    'MADE WITH CLIPPER',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class OuterClipper extends CustomClipper<Path> {
+  @override
+  getClip(Size size) {
+    Path path = Path()
+      ..lineTo((size.width / 2 - 42), 0)
+      ..cubicTo((size.width / 2 - 36), 0, (size.width / 2 - 35), 28,
+          (size.width / 2 - 29), 28)
+      ..lineTo((size.width / 2 + 29), 28)
+      ..cubicTo((size.width / 2 + 35), 28, (size.width / 2 + 36), 0,
+          (size.width / 2 + 42), 0)
+      ..lineTo(size.width, 0)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..lineTo(0, 0)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return true;
+    //CustomClipper는 코드를 까보면 listenable을 상속하고 있다.
+    //true로 두면, listener를 붙이고 새로운 커스텀 클리퍼가 들어올 때 마다 도형을 다시 그려주게 할 수 있다.
+    //핫리로드도 포함되기 때문에 도형을 새로 그리는 동작을 원치 않더라도 디버그 시에는 true로 해두자.
+  }
+}
+
+class InnerClipper extends CustomClipper<Path> {
+  @override
+  getClip(Size size) {
+    Path path = Path()
+      ..lineTo((size.width / 2 - 43), 0)
+      ..cubicTo((size.width / 2 - 37), 0, (size.width / 2 - 36), 28,
+          (size.width / 2 - 30), 28)
+      ..lineTo((size.width / 2 + 30), 28)
+      ..cubicTo((size.width / 2 + 36), 28, (size.width / 2 + 37), 0,
+          (size.width / 2 + 43), 0)
+      // ..lineTo((size.width / 2 + 40), 0)
+      ..lineTo(size.width, 0)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..lineTo(0, 0)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return true;
+    //CustomClipper는 코드를 까보면 listenable을 상속하고 있다.
+    //true로 두면, listener를 붙이고 새로운 커스텀 클리퍼가 들어올 때 마다 도형을 다시 그려주게 할 수 있다.
+    //핫리로드도 포함되기 때문에 도형을 새로 그리는 동작을 원치 않더라도 디버그 시에는 true로 해두자.
+  }
+}
+
+class MyPainter extends CustomPainter {
+  final ui.Image background;
+  const MyPainter(this.background);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint();
+    return canvas.drawImage(background, Offset.zero, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+//https://velog.io/@s_soo100/Flutter-Custom-Clipper-1.-%EA%B8%B0%EC%B4%88%ED%8E%B8
+//https://stackoverflow.com/questions/62515552/how-to-add-an-image-as-a-background-with-custompaint
