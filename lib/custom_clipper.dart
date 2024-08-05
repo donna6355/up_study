@@ -14,50 +14,50 @@ class CustomClipperSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("Custom Clipper Painter Test"),
       ),
       body: Center(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            ClipPath(
-              clipper: OuterClipper(),
-              child: Container(
-                width: 302,
-                height: 202,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Colors.black45,
-                ),
-              ),
-            ),
-            ClipPath(
-              clipper: InnerClipper(),
-              child: Container(
-                width: 300,
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(
-                    image: AssetImage('assets/isaac.jpg'),
-                    fit: BoxFit.cover,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              ClipPath(
+                clipper: OuterClipper(),
+                child: Container(
+                  width: double.infinity,
+                  height: 202,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.white,
                   ),
                 ),
-                child: const Center(
-                  child: Text(
-                    'MADE WITH CLIPPER',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 1),
+                child: ClipPath(
+                  clipper: InnerClipper(),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      image: DecorationImage(
+                        image: AssetImage('assets/isaac.jpg'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 200),
+                child: Image.asset("assets/carev_logo.png"),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -68,12 +68,12 @@ class OuterClipper extends CustomClipper<Path> {
   @override
   getClip(Size size) {
     Path path = Path()
-      ..lineTo((size.width / 2 - 42), 0)
-      ..cubicTo((size.width / 2 - 36), 0, (size.width / 2 - 35), 28,
-          (size.width / 2 - 29), 28)
-      ..lineTo((size.width / 2 + 29), 28)
-      ..cubicTo((size.width / 2 + 35), 28, (size.width / 2 + 36), 0,
-          (size.width / 2 + 42), 0)
+      ..lineTo((size.width / 2 - 104), 0)
+      ..cubicTo((size.width / 2 - 79), 0, (size.width / 2 - 84), 28,
+          (size.width / 2 - 64), 28)
+      ..lineTo((size.width / 2 + 64), 28)
+      ..cubicTo((size.width / 2 + 84), 28, (size.width / 2 + 79), 0,
+          (size.width / 2 + 104), 0)
       ..lineTo(size.width, 0)
       ..lineTo(size.width, size.height)
       ..lineTo(0, size.height)
@@ -95,12 +95,12 @@ class InnerClipper extends CustomClipper<Path> {
   @override
   getClip(Size size) {
     Path path = Path()
-      ..lineTo((size.width / 2 - 43), 0)
-      ..cubicTo((size.width / 2 - 37), 0, (size.width / 2 - 36), 28,
-          (size.width / 2 - 30), 28)
-      ..lineTo((size.width / 2 + 30), 28)
-      ..cubicTo((size.width / 2 + 36), 28, (size.width / 2 + 37), 0,
-          (size.width / 2 + 43), 0)
+      ..lineTo((size.width / 2 - 105), 0)
+      ..cubicTo((size.width / 2 - 80), 0, (size.width / 2 - 85), 28,
+          (size.width / 2 - 65), 28)
+      ..lineTo((size.width / 2 + 65), 28)
+      ..cubicTo((size.width / 2 + 85), 28, (size.width / 2 + 80), 0,
+          (size.width / 2 + 105), 0)
       // ..lineTo((size.width / 2 + 40), 0)
       ..lineTo(size.width, 0)
       ..lineTo(size.width, size.height)
