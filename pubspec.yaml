@@ -44,6 +44,8 @@ dependencies:
   android_id: ^0.4.0
   google_maps_flutter: ^2.7.0
   fl_chart: ^0.68.0
+  pluto_grid: ^8.0.0
+  data_table_2: ^2.5.15
   # nfc_host_card_emulation: ^1.1.0
   # nfc_manager: ^3.5.0
   # flutter_nfc_kit: ^3.5.2

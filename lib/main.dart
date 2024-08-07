@@ -5,6 +5,7 @@ import 'package:study/apple/apple_login.dart';
 import 'package:study/blur_test.dart';
 import 'package:study/chart_test.dart';
 import 'package:study/custom_clipper.dart';
+import 'package:study/data_table.dart';
 import 'package:study/guage_test.dart';
 import 'package:study/customized_map.dart';
 import 'package:study/device_info.dart';
@@ -68,6 +69,16 @@ class _LoginsState extends State<Logins> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const DataTableScreen(),
+                  ),
+                );
+              },
+              child: const Text('Data Table'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
