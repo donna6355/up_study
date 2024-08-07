@@ -62,7 +62,7 @@ class _LoginsState extends State<Logins> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SOCIAL LOGINS'),
+        title: const Text('ENTRY SCREEN'),
         centerTitle: true,
       ),
       body: Padding(
@@ -70,6 +70,7 @@ class _LoginsState extends State<Logins> {
         child: ListView(
           children: [
             ElevatedButton(
+              key: const ValueKey('dataTable'),
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -80,6 +81,7 @@ class _LoginsState extends State<Logins> {
               child: const Text('Data Table'),
             ),
             ElevatedButton(
+              key: const ValueKey('customClipper'),
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -90,6 +92,7 @@ class _LoginsState extends State<Logins> {
               child: const Text('Custom Clipper'),
             ),
             ElevatedButton(
+              key: const ValueKey('googleMap'),
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -151,26 +154,6 @@ class _LoginsState extends State<Logins> {
                 setState(() => status = res);
               },
               child: Text('Apple Login'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const CustomizedMap(),
-                  ),
-                );
-              },
-              child: const Text('Custom Google Map'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const GuageTest(),
-                  ),
-                );
-              },
-              child: const Text('Guage'),
             ),
             ElevatedButton(
               onPressed: () {
