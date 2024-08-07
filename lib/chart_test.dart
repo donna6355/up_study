@@ -86,26 +86,29 @@ class _ChartTestState extends State<ChartTest> {
               ),
             ),
           ),
-          SizedBox(
-            width: 300,
-            height: 300,
-            child: BarChart(
-              BarChartData(
-                barTouchData: BarTouchData(
-                  touchTooltipData: BarTouchTooltipData(
-                    tooltipPadding: EdgeInsets.symmetric(horizontal: 4),
-                    getTooltipColor: (_) => Colors.black45,
-                    getTooltipItem: (group, groupIndex, rod, rodIndex) =>
-                        BarTooltipItem(rod.toY.toString(), whiteText),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SizedBox(
+              width: 800,
+              height: 300,
+              child: BarChart(
+                BarChartData(
+                  barTouchData: BarTouchData(
+                    touchTooltipData: BarTouchTooltipData(
+                      tooltipPadding: EdgeInsets.symmetric(horizontal: 4),
+                      getTooltipColor: (_) => Colors.black45,
+                      getTooltipItem: (group, groupIndex, rod, rodIndex) =>
+                          BarTooltipItem(rod.toY.toString(), whiteText),
+                    ),
                   ),
+                  maxY: 14,
+                  barGroups: mockBarJson
+                      .map((element) => _generateBarData(
+                          x: element["date"]!,
+                          val1: element["slow"]!.toDouble(),
+                          val2: element["fast"]!.toDouble()))
+                      .toList(),
                 ),
-                maxY: 14,
-                barGroups: mockBarJson
-                    .map((element) => _generateBarData(
-                        x: element["date"]!,
-                        val1: element["slow"]!.toDouble(),
-                        val2: element["fast"]!.toDouble()))
-                    .toList(),
               ),
             ),
           ),
