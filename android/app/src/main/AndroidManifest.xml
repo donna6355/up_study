@@ -3,6 +3,11 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
     <uses-feature android:name="android.hardware.nfc" android:required="false" />
     <uses-feature android:name="android.hardware.nfc.hce" android:required="false" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
 
 	<queries>
         <!--신용카드-->
@@ -53,6 +58,11 @@
         <package android:name="com.sktelecom.tauth" />  <!--SKT-->
         <package android:name="com.kt.ktauth" />  <!--KT-->
         <package android:name="com.lguplus.smartotp" />  <!--LGT-->
+
+        <!--STT-->
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
     </queries>
     
     <application

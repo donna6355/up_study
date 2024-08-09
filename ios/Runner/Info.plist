@@ -134,7 +134,13 @@
 	<string>카리브</string>
 	<key>naverServiceAppUrlScheme</key>
 	<string>donna6355study</string>
+	
 	<key>NSFaceIDUsageDescription</key>
 	<string>Why is my app authenticating using face id?</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Why is my app using Speech Recognition?</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Why is my app using Microphone?</string>
+
 </dict>
 </plist>

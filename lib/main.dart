@@ -17,6 +17,7 @@ import 'package:study/naver/naver_login.dart';
 import 'package:study/nfc_hce_sample.dart';
 import 'package:study/nfc_native_sample.dart';
 import 'package:study/shadow.dart';
+import 'package:study/stt_screen.dart';
 
 import 'kakao/kakao_login.dart';
 
@@ -69,6 +70,16 @@ class _LoginsState extends State<Logins> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SttScreen(),
+                  ),
+                );
+              },
+              child: const Text('STT Screen'),
+            ),
             ElevatedButton(
               key: const ValueKey('dataTable'),
               onPressed: () {
