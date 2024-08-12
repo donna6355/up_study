@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
 
 class SvgToCustom extends StatelessWidget {
   const SvgToCustom({super.key});
@@ -9,13 +10,185 @@ class SvgToCustom extends StatelessWidget {
       appBar: AppBar(
         title: Text("SVG to Custom Painter"),
       ),
-      body: Center(
-        child: CustomPaint(
-          size: const Size(183, 220),
-          painter: RPSCustomPainter(),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        // child: CustomPaint(
+        //   size: const Size(183, 220),
+        //   painter: RPSCustomPainter(),
+        // ),
+        children: [
+          Text(
+              'CUSTOM PAINTER\n커스텀 페인터로 그린 도형의 GestureDetector는 무조건 사각형으로 범위가 잡힘\n아래와 같은 퍼즐 모양에서 빈 부분도 탭이 읽힘...ㅠㅠ'),
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () => print("LEFT PUZZLE TAPPED!!!!!"),
+                child: CustomPaint(
+                  size: const Size(100, 100),
+                  painter: LeftPuzzle(),
+                ),
+              ),
+              GestureDetector(
+                onTap: () => print("!!!!!!!!!!RIGHT PUZZLE TAPPED"),
+                child: CustomPaint(
+                  size: const Size(100, 100),
+                  painter: RightPuzzle(),
+                ),
+              )
+            ],
+          ),
+          const SizedBox(height: 100),
+          Text(
+              'CUSTOM CLIPPER\n커스텀 클리퍼로 자른 경우 빈 부분은 탭 인식 안됨. 빈 부분 오버랩된 상태로도 그려진 부분만 인식 잘됨'),
+          SizedBox(
+            width: 160,
+            height: 110,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  child: GestureDetector(
+                    onTap: () => print("&&&&&&&&&&&CLIPPER LEFT&&&&&&&&&&&"),
+                    child: ClipPath(
+                      clipper: LeftPuzzleClipper(),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/isaac.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  top: 10,
+                  child: GestureDetector(
+                    onTap: () =>
+                        print("*************CLIPPER RIGHT*************"),
+                    child: ClipPath(
+                      clipper: RightPuzzleClipper(),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/fangs.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
+  }
+}
+
+class LeftPuzzleClipper extends CustomClipper<Path> {
+  @override
+  getClip(Size size) {
+    final double width = size.width;
+    final double height = size.height;
+    Path path = Path()
+      ..lineTo(width, 0)
+      ..lineTo(width, height / 2)
+      ..lineTo(width / 2, height / 2)
+      ..lineTo(width / 2, height)
+      ..lineTo(0, height)
+      ..lineTo(0, 0)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return true;
+  }
+}
+
+class RightPuzzleClipper extends CustomClipper<Path> {
+  @override
+  getClip(Size size) {
+    final double width = size.width;
+    final double height = size.height;
+    Path path = Path()
+      ..moveTo(width, 0)
+      ..lineTo(width / 2, 0)
+      ..lineTo(width / 2, height / 2)
+      ..lineTo(0, height / 2)
+      ..lineTo(0, height)
+      ..lineTo(width, height)
+      ..lineTo(width, 0)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return true;
+  }
+}
+
+class LeftPuzzle extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final double width = size.width;
+    final double height = size.height;
+    final Paint paint = Paint()
+      ..color = Colors.green
+      ..style = PaintingStyle.fill;
+    Path path = Path()
+      ..lineTo(width, 0)
+      ..lineTo(width, height / 2)
+      ..lineTo(width / 2, height / 2)
+      ..lineTo(width / 2, height)
+      ..lineTo(0, height)
+      ..lineTo(0, 0)
+      ..close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class RightPuzzle extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final double width = size.width;
+    final double height = size.height;
+    final Paint paint = Paint()
+      ..color = Colors.amber
+      ..style = PaintingStyle.fill;
+    Path path = Path()
+      ..moveTo(width, 0)
+      ..lineTo(width / 2, 0)
+      ..lineTo(width / 2, height / 2)
+      ..lineTo(0, height / 2)
+      ..lineTo(0, height)
+      ..lineTo(width, height)
+      ..lineTo(width, 0)
+      ..close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
 
