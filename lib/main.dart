@@ -16,8 +16,10 @@ import 'package:study/method_channel.dart';
 import 'package:study/naver/naver_login.dart';
 import 'package:study/nfc_hce_sample.dart';
 import 'package:study/nfc_native_sample.dart';
+import 'package:study/ripple_effect.dart';
 import 'package:study/shadow.dart';
 import 'package:study/stt_screen.dart';
+import 'package:study/svc_to_custom_painter.dart';
 
 import 'kakao/kakao_login.dart';
 
@@ -70,6 +72,26 @@ class _LoginsState extends State<Logins> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SvgToCustom(),
+                  ),
+                );
+              },
+              child: const Text('Svg To CustomPainter'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const RippleEffect(),
+                  ),
+                );
+              },
+              child: const Text('Made Ripple Effect'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
