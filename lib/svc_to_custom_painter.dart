@@ -99,13 +99,39 @@ class LeftPuzzleClipper extends CustomClipper<Path> {
   getClip(Size size) {
     final double width = size.width;
     final double height = size.height;
+    const Radius raidus = Radius.circular(10);
     Path path = Path()
-      ..lineTo(width, 0)
-      ..lineTo(width, height / 2)
-      ..lineTo(width / 2, height / 2)
-      ..lineTo(width / 2, height)
-      ..lineTo(0, height)
-      ..lineTo(0, 0)
+      ..lineTo(width - 10, 0)
+      ..arcToPoint(
+        Offset(width, 10),
+        radius: raidus,
+      )
+      ..lineTo(width, height / 2 - 10)
+      ..arcToPoint(
+        Offset(width - 10, height / 2),
+        radius: raidus,
+      )
+      ..lineTo(width / 2 + 10, height / 2)
+      ..arcToPoint(
+        Offset(width / 2, height / 2 + 10),
+        radius: raidus,
+        clockwise: false,
+      )
+      ..lineTo(width / 2, height - 10)
+      ..arcToPoint(
+        Offset(width / 2 - 10, height),
+        radius: raidus,
+      )
+      ..lineTo(10, height)
+      ..arcToPoint(
+        Offset(0, height - 10),
+        radius: raidus,
+      )
+      ..lineTo(0, 10)
+      ..arcToPoint(
+        Offset(10, 0),
+        radius: raidus,
+      )
       ..close();
     return path;
   }
