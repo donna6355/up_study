@@ -20,24 +20,21 @@ mixin _$ChatbotEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function() record,
-    required TResult Function() send,
+    required TResult Function(ScrollController scrollCtrl) send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function()? record,
-    TResult? Function()? send,
+    TResult? Function(ScrollController scrollCtrl)? send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function()? record,
-    TResult Function()? send,
+    TResult Function(ScrollController scrollCtrl)? send,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,7 +42,6 @@ mixin _$ChatbotEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
-    required TResult Function(RecordChatbot value) record,
     required TResult Function(SendChatbot value) send,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +49,6 @@ mixin _$ChatbotEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
-    TResult? Function(RecordChatbot value)? record,
     TResult? Function(SendChatbot value)? send,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +56,6 @@ mixin _$ChatbotEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
-    TResult Function(RecordChatbot value)? record,
     TResult Function(SendChatbot value)? send,
     required TResult orElse(),
   }) =>
@@ -126,8 +120,7 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function() record,
-    required TResult Function() send,
+    required TResult Function(ScrollController scrollCtrl) send,
   }) {
     return init();
   }
@@ -137,8 +130,7 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function()? record,
-    TResult? Function()? send,
+    TResult? Function(ScrollController scrollCtrl)? send,
   }) {
     return init?.call();
   }
@@ -148,8 +140,7 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function()? record,
-    TResult Function()? send,
+    TResult Function(ScrollController scrollCtrl)? send,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -163,7 +154,6 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult map<TResult extends Object?>({
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
-    required TResult Function(RecordChatbot value) record,
     required TResult Function(SendChatbot value) send,
   }) {
     return init(this);
@@ -174,7 +164,6 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
-    TResult? Function(RecordChatbot value)? record,
     TResult? Function(SendChatbot value)? send,
   }) {
     return init?.call(this);
@@ -185,7 +174,6 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
-    TResult Function(RecordChatbot value)? record,
     TResult Function(SendChatbot value)? send,
     required TResult orElse(),
   }) {
@@ -266,8 +254,7 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function() record,
-    required TResult Function() send,
+    required TResult Function(ScrollController scrollCtrl) send,
   }) {
     return type(message);
   }
@@ -277,8 +264,7 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function()? record,
-    TResult? Function()? send,
+    TResult? Function(ScrollController scrollCtrl)? send,
   }) {
     return type?.call(message);
   }
@@ -288,8 +274,7 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function()? record,
-    TResult Function()? send,
+    TResult Function(ScrollController scrollCtrl)? send,
     required TResult orElse(),
   }) {
     if (type != null) {
@@ -303,7 +288,6 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult map<TResult extends Object?>({
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
-    required TResult Function(RecordChatbot value) record,
     required TResult Function(SendChatbot value) send,
   }) {
     return type(this);
@@ -314,7 +298,6 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
-    TResult? Function(RecordChatbot value)? record,
     TResult? Function(SendChatbot value)? send,
   }) {
     return type?.call(this);
@@ -325,7 +308,6 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
-    TResult Function(RecordChatbot value)? record,
     TResult Function(SendChatbot value)? send,
     required TResult orElse(),
   }) {
@@ -346,124 +328,12 @@ abstract class TypeChatbot implements ChatbotEvent {
 }
 
 /// @nodoc
-abstract class _$$RecordChatbotImplCopyWith<$Res> {
-  factory _$$RecordChatbotImplCopyWith(
-          _$RecordChatbotImpl value, $Res Function(_$RecordChatbotImpl) then) =
-      __$$RecordChatbotImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RecordChatbotImplCopyWithImpl<$Res>
-    extends _$ChatbotEventCopyWithImpl<$Res, _$RecordChatbotImpl>
-    implements _$$RecordChatbotImplCopyWith<$Res> {
-  __$$RecordChatbotImplCopyWithImpl(
-      _$RecordChatbotImpl _value, $Res Function(_$RecordChatbotImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$RecordChatbotImpl implements RecordChatbot {
-  const _$RecordChatbotImpl();
-
-  @override
-  String toString() {
-    return 'ChatbotEvent.record()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RecordChatbotImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function(String message) type,
-    required TResult Function() record,
-    required TResult Function() send,
-  }) {
-    return record();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function(String message)? type,
-    TResult? Function()? record,
-    TResult? Function()? send,
-  }) {
-    return record?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(String message)? type,
-    TResult Function()? record,
-    TResult Function()? send,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitChatbot value) init,
-    required TResult Function(TypeChatbot value) type,
-    required TResult Function(RecordChatbot value) record,
-    required TResult Function(SendChatbot value) send,
-  }) {
-    return record(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitChatbot value)? init,
-    TResult? Function(TypeChatbot value)? type,
-    TResult? Function(RecordChatbot value)? record,
-    TResult? Function(SendChatbot value)? send,
-  }) {
-    return record?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitChatbot value)? init,
-    TResult Function(TypeChatbot value)? type,
-    TResult Function(RecordChatbot value)? record,
-    TResult Function(SendChatbot value)? send,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RecordChatbot implements ChatbotEvent {
-  const factory RecordChatbot() = _$RecordChatbotImpl;
-}
-
-/// @nodoc
 abstract class _$$SendChatbotImplCopyWith<$Res> {
   factory _$$SendChatbotImplCopyWith(
           _$SendChatbotImpl value, $Res Function(_$SendChatbotImpl) then) =
       __$$SendChatbotImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ScrollController scrollCtrl});
 }
 
 /// @nodoc
@@ -473,36 +343,60 @@ class __$$SendChatbotImplCopyWithImpl<$Res>
   __$$SendChatbotImplCopyWithImpl(
       _$SendChatbotImpl _value, $Res Function(_$SendChatbotImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? scrollCtrl = null,
+  }) {
+    return _then(_$SendChatbotImpl(
+      scrollCtrl: null == scrollCtrl
+          ? _value.scrollCtrl
+          : scrollCtrl // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SendChatbotImpl implements SendChatbot {
-  const _$SendChatbotImpl();
+  const _$SendChatbotImpl({required this.scrollCtrl});
+
+  @override
+  final ScrollController scrollCtrl;
 
   @override
   String toString() {
-    return 'ChatbotEvent.send()';
+    return 'ChatbotEvent.send(scrollCtrl: $scrollCtrl)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SendChatbotImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SendChatbotImpl &&
+            (identical(other.scrollCtrl, scrollCtrl) ||
+                other.scrollCtrl == scrollCtrl));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, scrollCtrl);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendChatbotImplCopyWith<_$SendChatbotImpl> get copyWith =>
+      __$$SendChatbotImplCopyWithImpl<_$SendChatbotImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function() record,
-    required TResult Function() send,
+    required TResult Function(ScrollController scrollCtrl) send,
   }) {
-    return send();
+    return send(scrollCtrl);
   }
 
   @override
@@ -510,10 +404,9 @@ class _$SendChatbotImpl implements SendChatbot {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function()? record,
-    TResult? Function()? send,
+    TResult? Function(ScrollController scrollCtrl)? send,
   }) {
-    return send?.call();
+    return send?.call(scrollCtrl);
   }
 
   @override
@@ -521,12 +414,11 @@ class _$SendChatbotImpl implements SendChatbot {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function()? record,
-    TResult Function()? send,
+    TResult Function(ScrollController scrollCtrl)? send,
     required TResult orElse(),
   }) {
     if (send != null) {
-      return send();
+      return send(scrollCtrl);
     }
     return orElse();
   }
@@ -536,7 +428,6 @@ class _$SendChatbotImpl implements SendChatbot {
   TResult map<TResult extends Object?>({
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
-    required TResult Function(RecordChatbot value) record,
     required TResult Function(SendChatbot value) send,
   }) {
     return send(this);
@@ -547,7 +438,6 @@ class _$SendChatbotImpl implements SendChatbot {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
-    TResult? Function(RecordChatbot value)? record,
     TResult? Function(SendChatbot value)? send,
   }) {
     return send?.call(this);
@@ -558,7 +448,6 @@ class _$SendChatbotImpl implements SendChatbot {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
-    TResult Function(RecordChatbot value)? record,
     TResult Function(SendChatbot value)? send,
     required TResult orElse(),
   }) {
@@ -570,14 +459,20 @@ class _$SendChatbotImpl implements SendChatbot {
 }
 
 abstract class SendChatbot implements ChatbotEvent {
-  const factory SendChatbot() = _$SendChatbotImpl;
+  const factory SendChatbot({required final ScrollController scrollCtrl}) =
+      _$SendChatbotImpl;
+
+  ScrollController get scrollCtrl;
+  @JsonKey(ignore: true)
+  _$$SendChatbotImplCopyWith<_$SendChatbotImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$ChatbotState {
   Status get status => throw _privateConstructorUsedError;
+  List<Chat> get messages => throw _privateConstructorUsedError;
   String get input => throw _privateConstructorUsedError;
-  List<dynamic> get messages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatbotStateCopyWith<ChatbotState> get copyWith =>
@@ -590,7 +485,7 @@ abstract class $ChatbotStateCopyWith<$Res> {
           ChatbotState value, $Res Function(ChatbotState) then) =
       _$ChatbotStateCopyWithImpl<$Res, ChatbotState>;
   @useResult
-  $Res call({Status status, String input, List<dynamic> messages});
+  $Res call({Status status, List<Chat> messages, String input});
 }
 
 /// @nodoc
@@ -607,22 +502,22 @@ class _$ChatbotStateCopyWithImpl<$Res, $Val extends ChatbotState>
   @override
   $Res call({
     Object? status = null,
-    Object? input = null,
     Object? messages = null,
+    Object? input = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      messages: null == messages
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Chat>,
       input: null == input
           ? _value.input
           : input // ignore: cast_nullable_to_non_nullable
               as String,
-      messages: null == messages
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
     ) as $Val);
   }
 }
@@ -635,7 +530,7 @@ abstract class _$$ChatbotStateImplCopyWith<$Res>
       __$$ChatbotStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, String input, List<dynamic> messages});
+  $Res call({Status status, List<Chat> messages, String input});
 }
 
 /// @nodoc
@@ -650,22 +545,22 @@ class __$$ChatbotStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? input = null,
     Object? messages = null,
+    Object? input = null,
   }) {
     return _then(_$ChatbotStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      messages: null == messages
+          ? _value._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Chat>,
       input: null == input
           ? _value.input
           : input // ignore: cast_nullable_to_non_nullable
               as String,
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
     ));
   }
 }
@@ -675,28 +570,29 @@ class __$$ChatbotStateImplCopyWithImpl<$Res>
 class _$ChatbotStateImpl implements _ChatbotState {
   const _$ChatbotStateImpl(
       {this.status = Status.initial,
-      this.input = '',
-      final List<dynamic> messages = const []})
+      final List<Chat> messages = const [],
+      this.input = ''})
       : _messages = messages;
 
   @override
   @JsonKey()
   final Status status;
+  final List<Chat> _messages;
   @override
   @JsonKey()
-  final String input;
-  final List<dynamic> _messages;
-  @override
-  @JsonKey()
-  List<dynamic> get messages {
+  List<Chat> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
   }
 
   @override
+  @JsonKey()
+  final String input;
+
+  @override
   String toString() {
-    return 'ChatbotState(status: $status, input: $input, messages: $messages)';
+    return 'ChatbotState(status: $status, messages: $messages, input: $input)';
   }
 
   @override
@@ -705,13 +601,13 @@ class _$ChatbotStateImpl implements _ChatbotState {
         (other.runtimeType == runtimeType &&
             other is _$ChatbotStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.input, input) || other.input == input) &&
-            const DeepCollectionEquality().equals(other._messages, _messages));
+            const DeepCollectionEquality().equals(other._messages, _messages) &&
+            (identical(other.input, input) || other.input == input));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, input,
-      const DeepCollectionEquality().hash(_messages));
+  int get hashCode => Object.hash(runtimeType, status,
+      const DeepCollectionEquality().hash(_messages), input);
 
   @JsonKey(ignore: true)
   @override
@@ -723,15 +619,15 @@ class _$ChatbotStateImpl implements _ChatbotState {
 abstract class _ChatbotState implements ChatbotState {
   const factory _ChatbotState(
       {final Status status,
-      final String input,
-      final List<dynamic> messages}) = _$ChatbotStateImpl;
+      final List<Chat> messages,
+      final String input}) = _$ChatbotStateImpl;
 
   @override
   Status get status;
   @override
-  String get input;
+  List<Chat> get messages;
   @override
-  List<dynamic> get messages;
+  String get input;
   @override
   @JsonKey(ignore: true)
   _$$ChatbotStateImplCopyWith<_$ChatbotStateImpl> get copyWith =>

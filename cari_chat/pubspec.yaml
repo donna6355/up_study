@@ -65,6 +65,7 @@ flutter:
   assets:
     - assets/dialog_flow_auth.json
     - assets/cari.png
+    - assets/cari_icon.png
     - assets/cari_chat.png
     - assets/bg.png
 
