@@ -40,21 +40,15 @@ class ChatbotBloc extends Bloc<ChatbotEvent, ChatbotState> {
 
   Future<void> _onSend(SendChatbot event, Emitter<ChatbotState> emit) async {
     List<Chat> newMsg = List.from(state.messages);
-    newMsg.add(Chat(fromCari: false, chat: state.input));
+    newMsg.insert(0, Chat(fromCari: false, chat: state.input));
     emit(state.copyWith(status: Status.fetching, messages: newMsg));
-    _chatListScroll(event.scrollCtrl);
     DetectIntentResponse response = await dialogFlowtter.detectIntent(
       queryInput: QueryInput(text: TextInput(text: state.input)),
     );
-    newMsg.add(Chat(fromCari: true, chat: response.text ?? "잠시후 다시 시도해 주세요;;"));
+    newMsg.insert(
+      0,
+      Chat(fromCari: true, chat: response.text ?? "잠시후 다시 시도해 주세요;;"),
+    );
     emit(state.copyWith(status: Status.idle, messages: newMsg));
-    _chatListScroll(event.scrollCtrl);
-  }
-
-  Future<void> _chatListScroll(ScrollController ctrl) async {
-    await Future.delayed(const Duration(milliseconds: 100));
-    ctrl.animateTo(ctrl.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 600),
-        curve: Curves.fastOutSlowIn);
   }
 }

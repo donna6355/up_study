@@ -1,7 +1,6 @@
-import 'package:cari_chat/bloc/chatbot_bloc.dart';
-import 'package:cari_chat/chat_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'chat_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,19 +9,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => ChatbotBloc(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
-        ),
-        home: const WelcomeCari(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
+      home: const WelcomeCari(),
     );
   }
 }
@@ -56,7 +51,6 @@ class WelcomeCari extends StatelessWidget {
                     padding: WidgetStateProperty.all<EdgeInsets>(
                         const EdgeInsets.all(28))),
                 onPressed: () {
-                  context.read<ChatbotBloc>().add(const InitChatbot());
                   Navigator.of(context).push(
                     MaterialPageRoute<void>(
                       builder: (_) => const ChatScreen(),

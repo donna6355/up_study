@@ -20,21 +20,21 @@ mixin _$ChatbotEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function(ScrollController scrollCtrl) send,
+    required TResult Function() send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function(ScrollController scrollCtrl)? send,
+    TResult? Function()? send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function(ScrollController scrollCtrl)? send,
+    TResult Function()? send,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function(ScrollController scrollCtrl) send,
+    required TResult Function() send,
   }) {
     return init();
   }
@@ -130,7 +130,7 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function(ScrollController scrollCtrl)? send,
+    TResult? Function()? send,
   }) {
     return init?.call();
   }
@@ -140,7 +140,7 @@ class _$InitChatbotImpl implements InitChatbot {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function(ScrollController scrollCtrl)? send,
+    TResult Function()? send,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -254,7 +254,7 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function(ScrollController scrollCtrl) send,
+    required TResult Function() send,
   }) {
     return type(message);
   }
@@ -264,7 +264,7 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function(ScrollController scrollCtrl)? send,
+    TResult? Function()? send,
   }) {
     return type?.call(message);
   }
@@ -274,7 +274,7 @@ class _$TypeChatbotImpl implements TypeChatbot {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function(ScrollController scrollCtrl)? send,
+    TResult Function()? send,
     required TResult orElse(),
   }) {
     if (type != null) {
@@ -332,8 +332,6 @@ abstract class _$$SendChatbotImplCopyWith<$Res> {
   factory _$$SendChatbotImplCopyWith(
           _$SendChatbotImpl value, $Res Function(_$SendChatbotImpl) then) =
       __$$SendChatbotImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ScrollController scrollCtrl});
 }
 
 /// @nodoc
@@ -343,60 +341,35 @@ class __$$SendChatbotImplCopyWithImpl<$Res>
   __$$SendChatbotImplCopyWithImpl(
       _$SendChatbotImpl _value, $Res Function(_$SendChatbotImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? scrollCtrl = null,
-  }) {
-    return _then(_$SendChatbotImpl(
-      scrollCtrl: null == scrollCtrl
-          ? _value.scrollCtrl
-          : scrollCtrl // ignore: cast_nullable_to_non_nullable
-              as ScrollController,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$SendChatbotImpl implements SendChatbot {
-  const _$SendChatbotImpl({required this.scrollCtrl});
-
-  @override
-  final ScrollController scrollCtrl;
+  const _$SendChatbotImpl();
 
   @override
   String toString() {
-    return 'ChatbotEvent.send(scrollCtrl: $scrollCtrl)';
+    return 'ChatbotEvent.send()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SendChatbotImpl &&
-            (identical(other.scrollCtrl, scrollCtrl) ||
-                other.scrollCtrl == scrollCtrl));
+        (other.runtimeType == runtimeType && other is _$SendChatbotImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, scrollCtrl);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SendChatbotImplCopyWith<_$SendChatbotImpl> get copyWith =>
-      __$$SendChatbotImplCopyWithImpl<_$SendChatbotImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) type,
-    required TResult Function(ScrollController scrollCtrl) send,
+    required TResult Function() send,
   }) {
-    return send(scrollCtrl);
+    return send();
   }
 
   @override
@@ -404,9 +377,9 @@ class _$SendChatbotImpl implements SendChatbot {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String message)? type,
-    TResult? Function(ScrollController scrollCtrl)? send,
+    TResult? Function()? send,
   }) {
-    return send?.call(scrollCtrl);
+    return send?.call();
   }
 
   @override
@@ -414,11 +387,11 @@ class _$SendChatbotImpl implements SendChatbot {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? type,
-    TResult Function(ScrollController scrollCtrl)? send,
+    TResult Function()? send,
     required TResult orElse(),
   }) {
     if (send != null) {
-      return send(scrollCtrl);
+      return send();
     }
     return orElse();
   }
@@ -459,13 +432,7 @@ class _$SendChatbotImpl implements SendChatbot {
 }
 
 abstract class SendChatbot implements ChatbotEvent {
-  const factory SendChatbot({required final ScrollController scrollCtrl}) =
-      _$SendChatbotImpl;
-
-  ScrollController get scrollCtrl;
-  @JsonKey(ignore: true)
-  _$$SendChatbotImplCopyWith<_$SendChatbotImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory SendChatbot() = _$SendChatbotImpl;
 }
 
 /// @nodoc
