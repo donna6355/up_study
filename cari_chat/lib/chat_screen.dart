@@ -1,4 +1,5 @@
 import 'package:cari_chat/bloc/chatbot_bloc.dart';
+import 'package:cari_chat/record_dialog.dart';
 import 'package:cari_chat/text_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +15,28 @@ class ChatScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: const Color(0xff191f3a),
         body: SafeArea(
-          child: BlocBuilder<ChatbotBloc, ChatbotState>(
+          child: BlocConsumer<ChatbotBloc, ChatbotState>(
+            listenWhen: (previous, current) {
+              if (previous.status == current.status) return false;
+              return current.status == Status.recording ||
+                  previous.status == Status.recording;
+            },
+            listener: (context, state) {
+              if (state.status == Status.recording) {
+                showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (_) => BlocProvider.value(
+                    value: context.read<ChatbotBloc>(),
+                    child: const RecordDialog(),
+                  ),
+                );
+              } else {
+                if (ModalRoute.of(context)?.isCurrent == false) {
+                  Navigator.of(context).pop();
+                }
+              }
+            },
             builder: (context, state) {
               if (state.status == Status.error) {
                 return const Center(
@@ -53,7 +75,7 @@ class ChatScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: TextField(
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 hintText: "'에코타운'을 입력해보세요!",
                                 hintStyle: TextStyle(color: Colors.white38),
                                 filled: true,
@@ -72,7 +94,7 @@ class ChatScreen extends StatelessWidget {
                                     .add(TypeChatbot(value));
                               },
                               cursorColor: Colors.white,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 decoration: TextDecoration.none,
                               ),
@@ -86,17 +108,25 @@ class ChatScreen extends StatelessWidget {
                                   FocusScope.of(context).unfocus();
                                   context
                                       .read<ChatbotBloc>()
-                                      .add(SendChatbot());
+                                      .add(const SendChatbot());
                                 },
                                 iconSize: 30,
-                                icon: Icon(Icons.send),
+                                icon: const Icon(Icons.send),
                                 color: Colors.white,
                               )
-                            : ClipOval(
-                                child: Image.asset(
-                                  "assets/cari_icon.png",
-                                  width: 48,
-                                  height: 48,
+                            : GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  context
+                                      .read<ChatbotBloc>()
+                                      .add(const RecordChatbot());
+                                },
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    "assets/cari_icon.png",
+                                    width: 48,
+                                    height: 48,
+                                  ),
                                 ),
                               ),
                         const SizedBox(width: 16),

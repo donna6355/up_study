@@ -5,6 +5,7 @@ enum Status {
   error,
   idle,
   typing,
+  recording,
   fetching,
 }
 

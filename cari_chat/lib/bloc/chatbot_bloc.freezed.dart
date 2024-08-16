@@ -21,6 +21,8 @@ mixin _$ChatbotEvent {
     required TResult Function() init,
     required TResult Function(String message) type,
     required TResult Function() send,
+    required TResult Function() record,
+    required TResult Function() stopRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$ChatbotEvent {
     TResult? Function()? init,
     TResult? Function(String message)? type,
     TResult? Function()? send,
+    TResult? Function()? record,
+    TResult? Function()? stopRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$ChatbotEvent {
     TResult Function()? init,
     TResult Function(String message)? type,
     TResult Function()? send,
+    TResult Function()? record,
+    TResult Function()? stopRecord,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$ChatbotEvent {
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
     required TResult Function(SendChatbot value) send,
+    required TResult Function(RecordChatbot value) record,
+    required TResult Function(StopRecordChatbot value) stopRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$ChatbotEvent {
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
     TResult? Function(SendChatbot value)? send,
+    TResult? Function(RecordChatbot value)? record,
+    TResult? Function(StopRecordChatbot value)? stopRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$ChatbotEvent {
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
     TResult Function(SendChatbot value)? send,
+    TResult Function(RecordChatbot value)? record,
+    TResult Function(StopRecordChatbot value)? stopRecord,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,8 @@ class _$InitChatbotImpl implements InitChatbot {
     required TResult Function() init,
     required TResult Function(String message) type,
     required TResult Function() send,
+    required TResult Function() record,
+    required TResult Function() stopRecord,
   }) {
     return init();
   }
@@ -131,6 +145,8 @@ class _$InitChatbotImpl implements InitChatbot {
     TResult? Function()? init,
     TResult? Function(String message)? type,
     TResult? Function()? send,
+    TResult? Function()? record,
+    TResult? Function()? stopRecord,
   }) {
     return init?.call();
   }
@@ -141,6 +157,8 @@ class _$InitChatbotImpl implements InitChatbot {
     TResult Function()? init,
     TResult Function(String message)? type,
     TResult Function()? send,
+    TResult Function()? record,
+    TResult Function()? stopRecord,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -155,6 +173,8 @@ class _$InitChatbotImpl implements InitChatbot {
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
     required TResult Function(SendChatbot value) send,
+    required TResult Function(RecordChatbot value) record,
+    required TResult Function(StopRecordChatbot value) stopRecord,
   }) {
     return init(this);
   }
@@ -165,6 +185,8 @@ class _$InitChatbotImpl implements InitChatbot {
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
     TResult? Function(SendChatbot value)? send,
+    TResult? Function(RecordChatbot value)? record,
+    TResult? Function(StopRecordChatbot value)? stopRecord,
   }) {
     return init?.call(this);
   }
@@ -175,6 +197,8 @@ class _$InitChatbotImpl implements InitChatbot {
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
     TResult Function(SendChatbot value)? send,
+    TResult Function(RecordChatbot value)? record,
+    TResult Function(StopRecordChatbot value)? stopRecord,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -255,6 +279,8 @@ class _$TypeChatbotImpl implements TypeChatbot {
     required TResult Function() init,
     required TResult Function(String message) type,
     required TResult Function() send,
+    required TResult Function() record,
+    required TResult Function() stopRecord,
   }) {
     return type(message);
   }
@@ -265,6 +291,8 @@ class _$TypeChatbotImpl implements TypeChatbot {
     TResult? Function()? init,
     TResult? Function(String message)? type,
     TResult? Function()? send,
+    TResult? Function()? record,
+    TResult? Function()? stopRecord,
   }) {
     return type?.call(message);
   }
@@ -275,6 +303,8 @@ class _$TypeChatbotImpl implements TypeChatbot {
     TResult Function()? init,
     TResult Function(String message)? type,
     TResult Function()? send,
+    TResult Function()? record,
+    TResult Function()? stopRecord,
     required TResult orElse(),
   }) {
     if (type != null) {
@@ -289,6 +319,8 @@ class _$TypeChatbotImpl implements TypeChatbot {
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
     required TResult Function(SendChatbot value) send,
+    required TResult Function(RecordChatbot value) record,
+    required TResult Function(StopRecordChatbot value) stopRecord,
   }) {
     return type(this);
   }
@@ -299,6 +331,8 @@ class _$TypeChatbotImpl implements TypeChatbot {
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
     TResult? Function(SendChatbot value)? send,
+    TResult? Function(RecordChatbot value)? record,
+    TResult? Function(StopRecordChatbot value)? stopRecord,
   }) {
     return type?.call(this);
   }
@@ -309,6 +343,8 @@ class _$TypeChatbotImpl implements TypeChatbot {
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
     TResult Function(SendChatbot value)? send,
+    TResult Function(RecordChatbot value)? record,
+    TResult Function(StopRecordChatbot value)? stopRecord,
     required TResult orElse(),
   }) {
     if (type != null) {
@@ -368,6 +404,8 @@ class _$SendChatbotImpl implements SendChatbot {
     required TResult Function() init,
     required TResult Function(String message) type,
     required TResult Function() send,
+    required TResult Function() record,
+    required TResult Function() stopRecord,
   }) {
     return send();
   }
@@ -378,6 +416,8 @@ class _$SendChatbotImpl implements SendChatbot {
     TResult? Function()? init,
     TResult? Function(String message)? type,
     TResult? Function()? send,
+    TResult? Function()? record,
+    TResult? Function()? stopRecord,
   }) {
     return send?.call();
   }
@@ -388,6 +428,8 @@ class _$SendChatbotImpl implements SendChatbot {
     TResult Function()? init,
     TResult Function(String message)? type,
     TResult Function()? send,
+    TResult Function()? record,
+    TResult Function()? stopRecord,
     required TResult orElse(),
   }) {
     if (send != null) {
@@ -402,6 +444,8 @@ class _$SendChatbotImpl implements SendChatbot {
     required TResult Function(InitChatbot value) init,
     required TResult Function(TypeChatbot value) type,
     required TResult Function(SendChatbot value) send,
+    required TResult Function(RecordChatbot value) record,
+    required TResult Function(StopRecordChatbot value) stopRecord,
   }) {
     return send(this);
   }
@@ -412,6 +456,8 @@ class _$SendChatbotImpl implements SendChatbot {
     TResult? Function(InitChatbot value)? init,
     TResult? Function(TypeChatbot value)? type,
     TResult? Function(SendChatbot value)? send,
+    TResult? Function(RecordChatbot value)? record,
+    TResult? Function(StopRecordChatbot value)? stopRecord,
   }) {
     return send?.call(this);
   }
@@ -422,6 +468,8 @@ class _$SendChatbotImpl implements SendChatbot {
     TResult Function(InitChatbot value)? init,
     TResult Function(TypeChatbot value)? type,
     TResult Function(SendChatbot value)? send,
+    TResult Function(RecordChatbot value)? record,
+    TResult Function(StopRecordChatbot value)? stopRecord,
     required TResult orElse(),
   }) {
     if (send != null) {
@@ -433,6 +481,246 @@ class _$SendChatbotImpl implements SendChatbot {
 
 abstract class SendChatbot implements ChatbotEvent {
   const factory SendChatbot() = _$SendChatbotImpl;
+}
+
+/// @nodoc
+abstract class _$$RecordChatbotImplCopyWith<$Res> {
+  factory _$$RecordChatbotImplCopyWith(
+          _$RecordChatbotImpl value, $Res Function(_$RecordChatbotImpl) then) =
+      __$$RecordChatbotImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RecordChatbotImplCopyWithImpl<$Res>
+    extends _$ChatbotEventCopyWithImpl<$Res, _$RecordChatbotImpl>
+    implements _$$RecordChatbotImplCopyWith<$Res> {
+  __$$RecordChatbotImplCopyWithImpl(
+      _$RecordChatbotImpl _value, $Res Function(_$RecordChatbotImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RecordChatbotImpl implements RecordChatbot {
+  const _$RecordChatbotImpl();
+
+  @override
+  String toString() {
+    return 'ChatbotEvent.record()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RecordChatbotImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String message) type,
+    required TResult Function() send,
+    required TResult Function() record,
+    required TResult Function() stopRecord,
+  }) {
+    return record();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String message)? type,
+    TResult? Function()? send,
+    TResult? Function()? record,
+    TResult? Function()? stopRecord,
+  }) {
+    return record?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String message)? type,
+    TResult Function()? send,
+    TResult Function()? record,
+    TResult Function()? stopRecord,
+    required TResult orElse(),
+  }) {
+    if (record != null) {
+      return record();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitChatbot value) init,
+    required TResult Function(TypeChatbot value) type,
+    required TResult Function(SendChatbot value) send,
+    required TResult Function(RecordChatbot value) record,
+    required TResult Function(StopRecordChatbot value) stopRecord,
+  }) {
+    return record(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitChatbot value)? init,
+    TResult? Function(TypeChatbot value)? type,
+    TResult? Function(SendChatbot value)? send,
+    TResult? Function(RecordChatbot value)? record,
+    TResult? Function(StopRecordChatbot value)? stopRecord,
+  }) {
+    return record?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitChatbot value)? init,
+    TResult Function(TypeChatbot value)? type,
+    TResult Function(SendChatbot value)? send,
+    TResult Function(RecordChatbot value)? record,
+    TResult Function(StopRecordChatbot value)? stopRecord,
+    required TResult orElse(),
+  }) {
+    if (record != null) {
+      return record(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RecordChatbot implements ChatbotEvent {
+  const factory RecordChatbot() = _$RecordChatbotImpl;
+}
+
+/// @nodoc
+abstract class _$$StopRecordChatbotImplCopyWith<$Res> {
+  factory _$$StopRecordChatbotImplCopyWith(_$StopRecordChatbotImpl value,
+          $Res Function(_$StopRecordChatbotImpl) then) =
+      __$$StopRecordChatbotImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StopRecordChatbotImplCopyWithImpl<$Res>
+    extends _$ChatbotEventCopyWithImpl<$Res, _$StopRecordChatbotImpl>
+    implements _$$StopRecordChatbotImplCopyWith<$Res> {
+  __$$StopRecordChatbotImplCopyWithImpl(_$StopRecordChatbotImpl _value,
+      $Res Function(_$StopRecordChatbotImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StopRecordChatbotImpl implements StopRecordChatbot {
+  const _$StopRecordChatbotImpl();
+
+  @override
+  String toString() {
+    return 'ChatbotEvent.stopRecord()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$StopRecordChatbotImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String message) type,
+    required TResult Function() send,
+    required TResult Function() record,
+    required TResult Function() stopRecord,
+  }) {
+    return stopRecord();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String message)? type,
+    TResult? Function()? send,
+    TResult? Function()? record,
+    TResult? Function()? stopRecord,
+  }) {
+    return stopRecord?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String message)? type,
+    TResult Function()? send,
+    TResult Function()? record,
+    TResult Function()? stopRecord,
+    required TResult orElse(),
+  }) {
+    if (stopRecord != null) {
+      return stopRecord();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitChatbot value) init,
+    required TResult Function(TypeChatbot value) type,
+    required TResult Function(SendChatbot value) send,
+    required TResult Function(RecordChatbot value) record,
+    required TResult Function(StopRecordChatbot value) stopRecord,
+  }) {
+    return stopRecord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitChatbot value)? init,
+    TResult? Function(TypeChatbot value)? type,
+    TResult? Function(SendChatbot value)? send,
+    TResult? Function(RecordChatbot value)? record,
+    TResult? Function(StopRecordChatbot value)? stopRecord,
+  }) {
+    return stopRecord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitChatbot value)? init,
+    TResult Function(TypeChatbot value)? type,
+    TResult Function(SendChatbot value)? send,
+    TResult Function(RecordChatbot value)? record,
+    TResult Function(StopRecordChatbot value)? stopRecord,
+    required TResult orElse(),
+  }) {
+    if (stopRecord != null) {
+      return stopRecord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StopRecordChatbot implements ChatbotEvent {
+  const factory StopRecordChatbot() = _$StopRecordChatbotImpl;
 }
 
 /// @nodoc
