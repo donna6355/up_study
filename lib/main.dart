@@ -63,14 +63,20 @@ class Logins extends StatefulWidget {
 class _LoginsState extends State<Logins> {
   final appGroupId = "group.isaac_widget";
   final widgetName = 'study';
+  final androidWidgetName = 'isaacWidget';
   String status = 'NO ACCOUNT';
 
   @override
   void initState() {
     super.initState();
+    //home screen widget
+    //https://codelabs.developers.google.com/flutter-home-screen-widgets#0
     HomeWidget.setAppGroupId(appGroupId);
-    HomeWidget.saveWidgetData('title', 'Isaac Mir Kim is CUTE');
-    HomeWidget.updateWidget(iOSName: widgetName);
+    HomeWidget.saveWidgetData('title', 'Mir Isaac Kim is CUTE');
+    HomeWidget.updateWidget(
+      iOSName: widgetName,
+      androidName: androidWidgetName,
+    );
   }
 
   @override
