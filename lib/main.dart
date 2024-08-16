@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:study/apple/apple_login.dart';
 import 'package:study/blur_test.dart';
@@ -60,7 +61,18 @@ class Logins extends StatefulWidget {
 }
 
 class _LoginsState extends State<Logins> {
+  final appGroupId = "group.isaac_widget";
+  final widgetName = 'study';
   String status = 'NO ACCOUNT';
+
+  @override
+  void initState() {
+    super.initState();
+    HomeWidget.setAppGroupId(appGroupId);
+    HomeWidget.saveWidgetData('title', 'Isaac Mir Kim is CUTE');
+    HomeWidget.updateWidget(iOSName: widgetName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
