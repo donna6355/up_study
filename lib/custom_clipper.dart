@@ -24,16 +24,20 @@ class CustomClipperSample extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              ClipPath(
-                clipper: OuterClipper(),
-                child: Container(
-                  width: double.infinity,
-                  height: 202,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.white,
-                  ),
-                ),
+              // ClipPath(
+              //   clipper: OuterClipper(),
+              //   child: Container(
+              //     width: double.infinity,
+              //     height: 202,
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(16),
+              //       color: Colors.white,
+              //     ),
+              //   ),
+              // ),
+              CustomPaint(
+                painter: BorderPainter(),
+                child: SizedBox(height: 200, width: double.infinity),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 1),
@@ -43,7 +47,6 @@ class CustomClipperSample extends StatelessWidget {
                     width: double.infinity,
                     height: 200,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
                       image: DecorationImage(
                         image: AssetImage('assets/isaac.jpg'),
                         fit: BoxFit.cover,
@@ -61,6 +64,55 @@ class CustomClipperSample extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class BorderPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final width = size.width;
+    final height = size.height;
+    const Radius raidus = Radius.circular(16);
+    Paint paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2
+      ..color = Colors.amber;
+    Path path = Path()
+      ..moveTo(16, 0)
+      ..lineTo((size.width / 2 - 104), 0)
+      ..cubicTo((size.width / 2 - 79), 0, (size.width / 2 - 84), 28,
+          (size.width / 2 - 64), 28)
+      ..lineTo((size.width / 2 + 64), 28)
+      ..cubicTo((size.width / 2 + 84), 28, (size.width / 2 + 79), 0,
+          (size.width / 2 + 104), 0)
+      ..lineTo(size.width - 16, 0)
+      ..arcToPoint(
+        Offset(width, 16),
+        radius: raidus,
+      )
+      ..lineTo(size.width, size.height - 16)
+      ..arcToPoint(
+        Offset(width - 16, height),
+        radius: raidus,
+      )
+      ..lineTo(16, height)
+      ..arcToPoint(
+        Offset(0, height - 16),
+        radius: raidus,
+      )
+      ..lineTo(0, 16)
+      ..arcToPoint(
+        Offset(16, 0),
+        radius: raidus,
+      )
+      ..close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }
 
@@ -94,18 +146,37 @@ class OuterClipper extends CustomClipper<Path> {
 class InnerClipper extends CustomClipper<Path> {
   @override
   getClip(Size size) {
+    final width = size.width;
+    final height = size.height;
+    const Radius raidus = Radius.circular(16);
     Path path = Path()
-      ..lineTo((size.width / 2 - 105), 0)
-      ..cubicTo((size.width / 2 - 80), 0, (size.width / 2 - 85), 28,
-          (size.width / 2 - 65), 28)
-      ..lineTo((size.width / 2 + 65), 28)
-      ..cubicTo((size.width / 2 + 85), 28, (size.width / 2 + 80), 0,
-          (size.width / 2 + 105), 0)
-      // ..lineTo((size.width / 2 + 40), 0)
-      ..lineTo(size.width, 0)
-      ..lineTo(size.width, size.height)
-      ..lineTo(0, size.height)
-      ..lineTo(0, 0)
+      ..moveTo(16, 0)
+      ..lineTo((size.width / 2 - 104), 0)
+      ..cubicTo((size.width / 2 - 79), 0, (size.width / 2 - 84), 28,
+          (size.width / 2 - 64), 28)
+      ..lineTo((size.width / 2 + 64), 28)
+      ..cubicTo((size.width / 2 + 84), 28, (size.width / 2 + 79), 0,
+          (size.width / 2 + 104), 0)
+      ..lineTo(size.width - 16, 0)
+      ..arcToPoint(
+        Offset(width, 16),
+        radius: raidus,
+      )
+      ..lineTo(size.width, size.height - 16)
+      ..arcToPoint(
+        Offset(width - 16, height),
+        radius: raidus,
+      )
+      ..lineTo(16, height)
+      ..arcToPoint(
+        Offset(0, height - 16),
+        radius: raidus,
+      )
+      ..lineTo(0, 16)
+      ..arcToPoint(
+        Offset(16, 0),
+        radius: raidus,
+      )
       ..close();
     return path;
   }
