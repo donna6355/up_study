@@ -71,12 +71,12 @@ class _LoginsState extends State<Logins> {
     super.initState();
     //home screen widget
     //https://codelabs.developers.google.com/flutter-home-screen-widgets#0
-    HomeWidget.setAppGroupId(appGroupId);
-    HomeWidget.saveWidgetData('title', 'Mir Isaac Kim is CUTE');
-    HomeWidget.updateWidget(
-      iOSName: widgetName,
-      androidName: androidWidgetName,
-    );
+    // HomeWidget.setAppGroupId(appGroupId);
+    // HomeWidget.saveWidgetData('title', 'Mir Isaac Kim is CUTE');
+    // HomeWidget.updateWidget(
+    //   iOSName: widgetName,
+    //   androidName: androidWidgetName,
+    // );
   }
 
   @override
