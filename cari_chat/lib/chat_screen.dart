@@ -126,6 +126,10 @@ class ChatScreen extends StatelessWidget {
                                     "assets/cari_icon.png",
                                     width: 48,
                                     height: 48,
+                                    cacheHeight: (48 *
+                                            MediaQuery.of(context)
+                                                .devicePixelRatio)
+                                        .toInt(),
                                   ),
                                 ),
                               ),
