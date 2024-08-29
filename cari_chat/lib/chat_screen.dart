@@ -98,6 +98,14 @@ class ChatScreen extends StatelessWidget {
                                 color: Colors.white,
                                 decoration: TextDecoration.none,
                               ),
+                              onEditingComplete: () {
+                                inputCtrl.clear();
+                                FocusScope.of(context).unfocus();
+                                context
+                                    .read<ChatbotBloc>()
+                                    .add(const SendChatbot());
+                              },
+                              textInputAction: TextInputAction.go,
                             ),
                           ),
                         ),

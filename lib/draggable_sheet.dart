@@ -190,7 +190,7 @@ class PolyBorder extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 2
+      ..strokeWidth = 1
       ..color = Colors.blue;
     final double w = size.width;
     final double h = size.height;

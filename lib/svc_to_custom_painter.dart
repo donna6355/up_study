@@ -20,6 +20,7 @@ class SvgToCustom extends StatelessWidget {
           Text(
               'CUSTOM PAINTER\n커스텀 페인터로 그린 도형의 GestureDetector는 무조건 사각형으로 범위가 잡힘\n아래와 같은 퍼즐 모양에서 빈 부분도 탭이 읽힘...ㅠㅠ'),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: () => print("LEFT PUZZLE TAPPED!!!!!"),
@@ -40,53 +41,42 @@ class SvgToCustom extends StatelessWidget {
           const SizedBox(height: 100),
           Text(
               'CUSTOM CLIPPER\n커스텀 클리퍼로 자른 경우 빈 부분은 탭 인식 안됨. 빈 부분 오버랩된 상태로도 그려진 부분만 인식 잘됨'),
-          SizedBox(
-            width: 160,
-            height: 110,
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 0,
-                  child: GestureDetector(
-                    onTap: () => print("&&&&&&&&&&&CLIPPER LEFT&&&&&&&&&&&"),
-                    child: ClipPath(
-                      clipper: LeftPuzzleClipper(),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/isaac.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () => print("&&&&&&&&&&&CLIPPER LEFT&&&&&&&&&&&"),
+                child: ClipPath(
+                  clipper: LeftPuzzleClipper(),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/isaac.jpg'),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
-                Positioned(
-                  right: 0,
-                  top: 10,
-                  child: GestureDetector(
-                    onTap: () =>
-                        print("*************CLIPPER RIGHT*************"),
-                    child: ClipPath(
-                      clipper: RightPuzzleClipper(),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/fangs.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+              ),
+              GestureDetector(
+                onTap: () => print("*************CLIPPER RIGHT*************"),
+                child: ClipPath(
+                  clipper: RightPuzzleClipper(),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/fangs.jpg'),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           )
         ],
       ),
