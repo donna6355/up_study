@@ -21,6 +21,7 @@ import 'package:study/ripple_effect.dart';
 import 'package:study/shadow.dart';
 import 'package:study/stt_screen.dart';
 import 'package:study/svc_to_custom_painter.dart';
+import 'package:study/widget_test/test_screen.dart';
 
 import 'kakao/kakao_login.dart';
 
@@ -90,6 +91,26 @@ class _LoginsState extends State<Logins> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const TestScreen(),
+                  ),
+                );
+              },
+              child: const Text('Widget Test Screen'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SvgToCustom(),
+                  ),
+                );
+              },
+              child: const Text('Svg To CustomPainter'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
